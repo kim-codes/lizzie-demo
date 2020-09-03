@@ -15,4 +15,12 @@
       <p>What is the secret message? <b id="hiddenMsg">These are not the hidden msgs you are looking for</b></p>
     </div>
   </body>
+  <script>
+    (async function () {
+      let response = await fetch(`api/message`);
+      let message = await response.json();
+      
+      document.querySelector("#hiddenMsg").innerHTML = message.text
+    })();
+  </script>
   </html>
